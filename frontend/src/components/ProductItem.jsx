@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 const ProductItem = ({ id, image, name, price }) => {
   const { currency } = useContext(ShopContext);
-  const fallbackImage = "/default-product.jpg"; // Place a default image in your public folder
+  const fallbackImage = "/default-product.jpg";
 
   return (
     <Link className="text-gray-700 cursor-pointer" to={`/product/${id}`}>
       <div className="overflow-hidden">
         <img
-          className="transition ease-in-out hover:scale-110"
+          className="w-40 h-40 object-cover transition ease-in-out hover:scale-110" // Tailwind: 160x160px
           src={image && image.length > 0 ? image[0] : fallbackImage}
           alt="Product"
         />

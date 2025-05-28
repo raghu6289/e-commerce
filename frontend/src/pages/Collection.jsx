@@ -9,7 +9,6 @@ const Collection = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
-  // const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState("relevant");
 
   const toggleCategory = (e) => {
@@ -19,14 +18,6 @@ const Collection = () => {
       setCategory((prev) => [...prev, e.target.value]);
     }
   };
-
-  // const toggleSubCategory = (e) => {
-  //   if (subCategory.includes(e.target.value)) {
-  //     setSubCategory((prev) => prev.filter((item) => item !== e.target.value));
-  //   } else {
-  //     setSubCategory((prev) => [...prev, e.target.value]);
-  //   }
-  // };
 
   const applyFilter = () => {
     let productsCopy = products.slice();
@@ -42,12 +33,6 @@ const Collection = () => {
         category.includes(item.category)
       );
     }
-    // if (subCategory.length > 0) {
-    //   productsCopy = productsCopy.filter((item) =>
-    //     subCategory.includes(item.subCategory)
-    //   );
-    // }
-
     setFilterProducts(productsCopy);
   };
 
@@ -69,7 +54,6 @@ const Collection = () => {
 
   const clearFilters = () => {
     setCategory([]);
-    // setSubCategory([]);
   };
 
   useEffect(() => {
@@ -135,47 +119,6 @@ const Collection = () => {
             </label>
           </div>
         </div>
-        {/* Sub Category Filters */}
-        {/* <div
-          className={`border border-gray-300 pl-5 py-3 my-5 ${
-            showFilter ? "" : "hidden"
-          } sm:block`}
-        >
-          <p className="mb-3 text-sm font-medium">TYPES</p>
-          <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-            <label className="flex gap-2 cursor-pointer">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Topwear"}
-                // onChange={toggleSubCategory}
-                // checked={subCategory.includes("Topwear")}
-              />
-              Topwear
-            </label>
-            <label className="flex gap-2 cursor-pointer">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Bottomwear"}
-                onChange={toggleSubCategory}
-                checked={subCategory.includes("Bottomwear")}
-              />
-              Bottomwear
-            </label>
-            <label className="flex gap-2 cursor-pointer">
-              <input
-                className="w-3"
-                type="checkbox"
-                value={"Winterwear"}
-                onChange={toggleSubCategory}
-                checked={subCategory.includes("Winterwear")}
-              />
-              Winterwear
-            </label>
-          </div>
-        </div> */}
-        {/* Clear Filters Button */}
         <button
           className={`px-4 py-2 mt-1 text-white bg-black rounded hover:bg-gray-900 ${
             showFilter ? "block" : "hidden"

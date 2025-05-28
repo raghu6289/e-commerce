@@ -37,7 +37,7 @@ const Product = () => {
                 src={item}
                 key={index}
                 onClick={() => setImage(item)}
-                className={`w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer ${
+                className={`w-20 h-20 object-cover sm:w-full sm:h-24 sm:mb-3 flex-shrink-0 cursor-pointer ${
                   image === item ? "border-2 border-gray-600 py-2 px-2" : ""
                 }`}
                 alt="Photo"
@@ -45,7 +45,11 @@ const Product = () => {
             ))}
           </div>
           <div className="w-full sm:w-[80%]">
-            <img src={image} className="w-full h-auto" alt="Photo" />
+            <img
+              src={image}
+              className="w-full max-w-[400px] h-[420px] object-cover mx-auto"
+              alt="Photo"
+            />
           </div>
         </div>
         {/* Product Info */}
@@ -122,10 +126,7 @@ const Product = () => {
         </div>
       </div>
       {/* Display Related Products */}
-      <RelatedProducts
-        category={productData.category}
-        // subCategory={productData.subCategory}
-      />
+      <RelatedProducts category={productData.category} />
     </div>
   ) : (
     <div className="opacity-0"></div>
